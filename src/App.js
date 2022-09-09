@@ -21,7 +21,7 @@ function App() {
 
   function handleChange(event) {
     const { type, value, name, checked } = event.target;
-    setForm(prevVal => { return { ...prevVal, [name]: type === "checkbox" ? checked : value } });
+    setForm(prevVal => ({ ...prevVal, [name]: type === "checkbox" ? checked : value }));
   }
 
   return (
