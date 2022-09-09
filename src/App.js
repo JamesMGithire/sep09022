@@ -14,10 +14,11 @@ function App() {
     event.preventDefault()
     const { password1, password2, join } = form
     console.log(password1 === password2
-      ? "Succefully signed up\nThanks for signing up for the newsletter"
+      ? "Succefully signed up"
       : "Passwords do not match");
+    join && password1 === password2 && console.log("Thanks for signing up for our newsletter!")
   }
-  
+
   function handleChange(event) {
     const { type, value, name, checked } = event.target;
     setForm(prevVal => { return { ...prevVal, [name]: type === "checkbox" ? checked : value } });
