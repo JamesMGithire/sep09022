@@ -12,14 +12,15 @@ function App() {
 
   function handleSubmit(event) {
     event.preventDefault()
-    const{password1,password2,join}=form
-    console.log(password1===password2 ? 
-      ("Succefully signed up"):"Passwords do not match");
-    join && console.log("Thanks for signing up for the newsletter");
+    const { password1, password2, join } = form
+    console.log(password1 === password2
+      ? "Succefully signed up\nThanks for signing up for the newsletter"
+      : "Passwords do not match");
   }
+  
   function handleChange(event) {
-    const { type, value ,name, checked } = event.target;
-    setForm(prevVal => { return { ...prevVal, [name]: type === "checkbox"? checked : value } });
+    const { type, value, name, checked } = event.target;
+    setForm(prevVal => { return { ...prevVal, [name]: type === "checkbox" ? checked : value } });
   }
 
   return (
@@ -36,26 +37,27 @@ function App() {
             placeholder='johndoe@example.com'
           />
           <input
-            type="text"
+            type="password"
             name='password1'
             onChange={handleChange}
             placeholder='Password'
           />
           <input
-            type="text"
+            type="password"
             name='password2'
             onChange={handleChange}
             placeholder='Confirm Password'
           />
           <div>
             <input
+              id="checkjoin"
               type='checkbox'
               checked={form.join}
               className='width10'
               name='join'
               onChange={handleChange}
             />
-            <label>I want to join the newsletter</label>
+            <label htmlFor="checkjoin">I want to join the newsletter</label>
           </div>
           <button
             className='bgpurple color-white width60'
