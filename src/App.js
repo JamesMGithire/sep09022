@@ -12,7 +12,10 @@ function App() {
 
   function handleSubmit(event) {
     event.preventDefault()
-    const { value, name } = event.target;
+    const{password1,password2,join}=form
+    console.log(password1===password2 ? 
+      ("Succefully signed up"):"Passwords do not match");
+    join && console.log("Thanks for signing up for the newsletter");
   }
   function handleChange(event) {
     const { type, value ,name, checked } = event.target;
